@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse
 from django.template import RequestContext, loader
+from django.utils import timezone
 
 from .models import Conf
 
@@ -9,7 +10,10 @@ from .models import Conf
 def index(request):
     template = loader.get_template('confs/index.html')
     conf_list = Conf.objects.all()
-    context = RequestContext(request, {'conf_list': conf_list})
+    future_confs = conf_list.exclude(conf_date__lt=timezone.now())
+    conf_list = conf_list.exclude(conf_date__gt=timezone.now())
+    context = RequestContext(request, {'conf_list': conf_list, 'future_confs':
+        future_confs})
     return HttpResponse(template.render(context))
 
 def details(request, conf_id):

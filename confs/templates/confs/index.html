@@ -1,12 +1,32 @@
 {% extends "site/base.html" %}
 
-
+{% block title %}
+  <title>Conférences</title>
+{% endblock title %}
 {% block content %}
+
+<h1>Conférences</h1>
+<p>Voici la liste des conférences passées et à venir organisées par
+l'association GConfs :<p>
+
+<h2>Prochaines conférences</h2>
+
+{% if future_confs %}
+  <ul>
+    {% for conf in future_confs %}
+      <li><a href="{% url 'details' conf.id %}">{{ conf.conf_title }}</a></li>
+    {% endfor %}
+  </ul>
+{% endif %}
+
+<h2>Conférences Passées</h2>
 {% if conf_list %}
   <ul>
     {% for conf in conf_list %}
       <li><a href="{% url 'details' conf.id %}">{{ conf.conf_title }}</a></li>
     {% endfor %}
+
   </ul>
+
 {% endif %}
 {% endblock content %}

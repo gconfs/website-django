@@ -5,13 +5,14 @@ from django.utils import timezone
 
 class Speaker(models.Model):
     speaker_name = models.CharField('Nom', max_length=200)
-    speaker_firstname = models.CharField('Prénom', max_length=200, default='')
+    speaker_firstname = models.CharField('Prénom', max_length=200,
+            default=None, null=True)
     speaker_pseudo = models.CharField('Pseudo', max_length=200,
-            default=' ',)
-    speaker_website = models.URLField('Website', max_length=200, default='')
+            default=None, null=True)
+    speaker_website = models.URLField('Website', max_length=200, default=None, null=True)
     
     def __str__(self):
-        return self.speaker_firstname + (' ' if self.speaker_pseudo == ' '
+        return self.speaker_firstname + (' ' if self.speaker_pseudo
                 else (' \"' + self.speaker_pseudo + '\" ')) + self.speaker_name
 
 

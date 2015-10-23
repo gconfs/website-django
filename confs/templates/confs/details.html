@@ -1,8 +1,10 @@
 {% extends "site/base.html" %}
 
-
 {% block content %}
 {% if conf %}
+  {% block title %}
+  <title>{{ conf.conf_title }}</title>
+  {% endblock title %}
 
   <h1>{{ conf.conf_title }}</h1>
   
