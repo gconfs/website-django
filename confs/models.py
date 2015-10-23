@@ -12,7 +12,7 @@ class Speaker(models.Model):
     speaker_website = models.URLField('Website', max_length=200, default=None, null=True)
     
     def __str__(self):
-        return self.speaker_firstname + (' ' if self.speaker_pseudo
+        return self.speaker_firstname + (' ' if not self.speaker_pseudo
                 else (' \"' + self.speaker_pseudo + '\" ')) + self.speaker_name
 
 
