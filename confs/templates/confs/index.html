@@ -1,0 +1,7 @@
+{% if conf_list %}
+  <ul>
+    {% for conf in conf_list %}
+      <li><a href="{{ conf.id }}">{{ conf.conf_title }}</a></li>
+    {% endfor %}
+  </ul>
+{% endif %}

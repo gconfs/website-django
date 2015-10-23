@@ -1,0 +1,34 @@
+{% if conf %}
+
+  <h1>{{ conf.conf_title }}</h1>
+  
+  <h2>Date</h2>
+  <p>{{ conf.conf_date }}</p>
+
+  <h2>Lieu</h2>
+  <p>{{ conf.conf_location }}</p>
+
+  <h2>Abstract</h2>
+  <p>{{ conf.conf_description }}</p>
+
+  {% if conf.tpinfo_set.all %}
+    <h2>TP</h2>
+    <ul>
+    {% for tp in conf.tpinfo_set.all %}
+    <li><a href={{ tp.tpinfo_url }}>{{tp.tpinfo_title}}</a></li>
+    {% endfor %}
+    </ul>
+  {% endif %}
+
+  {% if conf.conf_speakers.all|length > 1 %}
+  <h2>Speakers</h2>
+  {% else %}
+  <h2>Speaker</h2>
+  {% endif %}
+    <ul>
+      {% for speaker in conf.conf_speakers.all %}
+      <li>{{ speaker }}</li>
+      {% endfor %}
+    </ul>
+
+{% endif %}
