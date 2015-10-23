@@ -40,6 +40,7 @@ INSTALLED_APPS = (
     'homepage',
     'confs',
     'team',
+    'status',
 )
 
 MIDDLEWARE_CLASSES = (
