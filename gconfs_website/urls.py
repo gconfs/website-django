@@ -22,4 +22,5 @@ urlpatterns = [
     url(r'^team/', include('team.urls')),
     url(r'^$', include('homepage.urls')),
     url(r'^/$', include('homepage.urls')),
+    url(r'^[0-9a-zA-Z]+$', include('homepage.urls')),
 ]
