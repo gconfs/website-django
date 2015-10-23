@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Conf, VideoInfo, TPInfo, Speaker
+from .models import Conf, VideoInfo, TPInfo
 
 # Register your models here.
 
@@ -39,4 +39,3 @@ class ConfAdmin(admin.ModelAdmin):
     search_fields = ['conf_title', 'conf_description']
 
 admin.site.register(Conf, ConfAdmin)
-admin.site.register(Speaker)

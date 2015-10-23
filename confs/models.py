@@ -1,20 +1,8 @@
 from django.db import models
 from django.utils import timezone
+from team.models import Member as Speaker
 
 # Create your models here.
-
-class Speaker(models.Model):
-    speaker_name = models.CharField('Nom', max_length=200)
-    speaker_firstname = models.CharField('Prénom', max_length=200,
-            default=None, null=True)
-    speaker_pseudo = models.CharField('Pseudo', max_length=200,
-            default=None, null=True)
-    speaker_website = models.URLField('Website', max_length=200, default=None, null=True)
-    
-    def __str__(self):
-        return self.speaker_firstname + (' ' if not self.speaker_pseudo
-                else (' \"' + self.speaker_pseudo + '\" ')) + self.speaker_name
-
 
 class Conf(models.Model):
     conf_title = models.CharField('Titre', max_length=200)

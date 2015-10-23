@@ -1,0 +1,23 @@
+{% extends "site/base.html" %}
+
+{% block title %}
+<title>Team</title>
+{% endblock title %}
+
+{% block content %}
+
+<h1>Team</h1>
+
+{% if team %}
+
+  <ul>
+
+  {% for member in team %}
+    <li>{{ member }}</li>
+  {% endfor %}
+
+  </ul> 
+
+{% endif %}
+
+{% endblock content %}
