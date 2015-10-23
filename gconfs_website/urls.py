@@ -20,4 +20,6 @@ urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'^confs/', include('confs.urls')),
     url(r'^team/', include('team.urls')),
+    url(r'^$', include('homepage.urls')),
+    url(r'^/$', include('homepage.urls')),
 ]
