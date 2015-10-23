@@ -22,7 +22,7 @@ header {
 }
 
 div.banner {
-    background: #d07030 url(/media/images/banner-background.png)
+    background: #d07030 url(/static/img/banner-background.png)
                 repeat-x bottom left;
     color: white;
     padding: 1em 20em;
