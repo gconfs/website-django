@@ -1,0 +1,70 @@
+{% extends "site/base.html" %}
+
+{% block title %}
+
+<title>Statuts</title>
+
+{% endblock title %}
+
+{% block content %}
+
+{% if board %}
+<h1>{{ board }}</h1>
+
+<ul>
+  {% if board.president %}
+
+  <li>Président : {{ board.president }}</li>
+
+  {% endif %}
+
+  {% if board.vice_president %}
+
+  <li>Vice-Président : {{ board.vice_president }}</li>
+
+  {% endif %}
+
+  {% if board.accountant %}
+
+  <li>Trésorier : {{ board.accountant }}</li>
+
+  {% endif %}
+
+  {% if board.vice_accountant %}
+
+  <li>Vice-Trésorier : {{ board.vice_accountant }}</li>
+
+  {% endif %}
+
+  {% if board.secretary %}
+
+  <li>Secrétaire : {{ board.secretary }}</li>
+
+  {% endif %}
+
+  {% if board.vice_secretary %}
+
+  <li>Vice-Secrétaire : {{ board.vice_secretary }}</li>
+
+  {% endif %}
+</ul>
+{% endif %}
+
+<p>Cette page regroupe la progression actuelle de l’association pour toutes ses
+activités (administratives, conférences, etc.). Pour consulter l’évolution de
+l’association, nous maintenons aussi la <a href="/reports/">liste des comptes-rendus des
+  réunions</a>.</p>
+<ul>
+  <li>
+    <p>Nous avons plusieurs pistes de conférences d'intervenants externes
+    importants à concrétiser</p>
+  </li>
+  <li>
+    <p>Nous allons bientôt recevoir le budget, c'est le moment de mettre en place
+    un serveur propre à l'association et de penser aux T-shirts !</p>
+  </li>
+</ul>
+<p>Si vous avez d’autres idées, venez sur IRC : canal <code>#gconfs</code> sur
+<a href="http://rezosup.org">Rezosup</a>.</p>
+
+{% endblock content%}

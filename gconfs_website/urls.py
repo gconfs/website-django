@@ -17,10 +17,10 @@ from django.conf.urls import include, url
 from django.contrib import admin
 
 urlpatterns = [
-    url(r'^admin[/]+', include(admin.site.urls)),
-    url(r'^confs/', include('confs.urls')),
-    url(r'^team/', include('team.urls')),
-    url(r'^status/', include('status.urls')),
-    url(r'^$', include('homepage.urls')),
+    url(r'^admin[/]?', include(admin.site.urls)),
+    url(r'^confs[/]?', include('confs.urls')),
+    url(r'^team[/]?', include('team.urls')),
+    url(r'^statuts[/]?', include('statuts.urls')),
+    url(r'^[/]?$', include('homepage.urls')),
     # url(r'^[0-9a-zA-Z]+$', include('homepage.urls')),
 ]

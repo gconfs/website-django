@@ -1,5 +1,9 @@
 from django.db import models
 from django.utils import timezone
+from datetime import date
+
+from django.db.models.signals import pre_save
+from django.dispatch import receiver
 
 from team.models import Member
 
@@ -7,7 +11,8 @@ from team.models import Member
 
 class Board(models.Model):
     board_date = models.DateField('Date', default=timezone.now)
-    board_year = models.PositiveIntegerField('Année', default=timezone.now().year)
+
+    board_year = models.PositiveIntegerField('Année', editable=False)
     president = models.OneToOneField(Member, related_name='President_of')
     vice_president = models.OneToOneField(Member,
     related_name='Vice_President_of')
@@ -21,3 +26,10 @@ class Board(models.Model):
     def __str__(self):
         year = self.board_date.year
         return "Bureau de l'année {} - {}".format(year, year + 1)
+
+@receiver(pre_save, sender=Board)
+def update(sender, **kwargs):
+    instance = kwargs['instance']
+    print('Before {}'.format(instance.board_year))
+    instance.board_year = instance.board_date.year
+    print('After {}'.format(instance.board_year))
