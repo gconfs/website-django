@@ -112,3 +112,7 @@ STATICFILES_DIRS = (
 )
 
 STATIC_URL = '/static/'
+
+# URLs settings
+APPEND_SLASH = True
+PREPEND_WWW = False

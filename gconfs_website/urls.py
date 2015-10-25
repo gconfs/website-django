@@ -15,12 +15,17 @@ Including another URLconf
 """
 from django.conf.urls import include, url
 from django.contrib import admin
+from django.views.generic import RedirectView
 
 urlpatterns = [
-    url(r'^admin[/]?', include(admin.site.urls)),
-    url(r'^confs[/]?', include('confs.urls')),
-    url(r'^team[/]?', include('team.urls')),
-    url(r'^statuts[/]?', include('statuts.urls')),
+    url(r'^admin$', RedirectView.as_view(url='/admin/')),
+    url(r'^admin/', include(admin.site.urls)),
+    url(r'^confs$', RedirectView.as_view(url='/confs/')),
+    url(r'^confs/', include('confs.urls')),
+    url(r'^team$', RedirectView.as_view(url='/team/')),
+    url(r'^team/', include('team.urls')),
+    url(r'^statuts$', RedirectView.as_view(url='/statuts/')),
+    url(r'^statuts/', include('statuts.urls')),
     url(r'^[/]?$', include('homepage.urls')),
-    # url(r'^[0-9a-zA-Z]+$', include('homepage.urls')),
+    url(r'^[0-9a-zA-Z]+$', include('homepage.urls')),
 ]
