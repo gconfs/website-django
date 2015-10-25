@@ -9,7 +9,6 @@ from .models import Board
 
 def index(request):
     template = loader.get_template('statuts/index.html')
-    print(timezone.now().month)
     try:
         board = Board.objects.get(board_year=timezone.now().year)
     except:

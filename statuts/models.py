@@ -28,7 +28,7 @@ class Board(models.Model):
         return "Bureau de l'année {} - {}".format(year, year + 1)
 
 @receiver(pre_save, sender=Board)
-def update(sender, **kwargs):
+def update_year(sender, **kwargs):
     instance = kwargs['instance']
     print('Before {}'.format(instance.board_year))
     instance.board_year = instance.board_date.year
