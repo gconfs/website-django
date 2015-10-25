@@ -27,5 +27,5 @@ urlpatterns = [
     url(r'^statuts$', RedirectView.as_view(url='/statuts/')),
     url(r'^statuts/', include('statuts.urls')),
     url(r'^[/]?$', include('homepage.urls')),
-    url(r'^[0-9a-zA-Z]+$', include('homepage.urls')),
+    url(r'^[0-9a-zA-Z]+[/]?$', include('homepage.urls')),
 ]
