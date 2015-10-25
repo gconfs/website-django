@@ -17,25 +17,47 @@
   <h3>Abstract</h3>
   <p>{{ conf.conf_description }}</p>
 
-  {% if conf.tpinfo_set.all %}
+  {% with speakers=conf.conf_speakers.all %}
+  {% if speakers|length > 0 %}
+    {% if speakers|length > 1 %}
+    <h3>Speakers</h3>
+    {% else %}
+    <h3>Speaker</h3>
+    {% endif %}
+      <ul>
+        {% for speaker in speakers %}
+        <li>{{ speaker }}</li>
+        {% endfor %}
+      </ul>
+  {% endif %}
+  {% endwith %}
+
+  {% with tps=conf.tpinfo_set.all %}
+  {% if tps %}
     <h3>TP</h3>
     <ul>
-    {% for tp in conf.tpinfo_set.all %}
+    {% for tp in tps %}
     <li><a href={{ tp.tpinfo_url }}>{{tp.tpinfo_title}}</a></li>
     {% endfor %}
     </ul>
   {% endif %}
+  {% endwith %}
 
-  {% if conf.conf_speakers.all|length > 1 %}
-  <h3>Speakers</h3>
-  {% else %}
-  <h3>Speaker</h3>
+  {% with videos=conf.videoinfo_set.all %}
+  {% if videos|length > 0 %}
+    {% if videos|length > 1 %}
+      <h3>Vidéos</h3>
+    {% else %}
+      <h3>Vidéo</h3>
+    {% endif %}
+    {% for video in videos %}
+      <h4>{{ video.videoinfo_title }}</h4>
+      <iframe width="560" height="315"
+        src="https://www.youtube.com/embed/{{video.youtube_id}}"
+        frameborder="0" allowfullscreen></iframe>
+    {% endfor %}
   {% endif %}
-    <ul>
-      {% for speaker in conf.conf_speakers.all %}
-      <li>{{ speaker }}</li>
-      {% endfor %}
-    </ul>
-
+  {% endwith %}
+  
 {% endif %}
 {% endblock content %}
