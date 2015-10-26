@@ -18,10 +18,11 @@ class Board(models.Model):
     related_name='Vice_President_of')
     accountant = models.OneToOneField(Member, related_name='Accountant_of')
     vice_accountant =  models.OneToOneField(Member,
-            related_name='Vice_Accountant',default=None, null=True)
+            related_name='Vice_Accountant',default=None, null=True, blank=True)
     secretary = models.OneToOneField(Member, related_name='Secretary_of')
     vice_secretary = models.OneToOneField(Member,
-            related_name='Vice_Secretary_of', default=None, null=True)
+            related_name='Vice_Secretary_of', default=None, null=True,
+            blank=True)
 
     def __str__(self):
         year = self.board_date.year
