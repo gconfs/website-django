@@ -41,6 +41,7 @@ INSTALLED_APPS = (
     'confs',
     'team',
     'statuts',
+    'contact',
 )
 
 MIDDLEWARE_CLASSES = (

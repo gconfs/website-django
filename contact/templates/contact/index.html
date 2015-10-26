@@ -1,0 +1,17 @@
+{% extends 'site/base.html' %}
+
+{% block title %}
+<title>Contact</title>
+{% endblock title %}
+
+{% block content %}
+<h1>Contact</h1>
+
+{% with contact="contact@gconfs.fr" %}
+  <p>Vous pouvez nous contacter via les moyens suivants :</p>
+  <ul>
+  <li><a href="mailto://{{ contact }}">{{ contact }}</a></li>
+  <li>IRC : #gconfs  sur irc.rezosup.org</li>
+  </ul>
+{% endwith %}
+{% endblock content %}
