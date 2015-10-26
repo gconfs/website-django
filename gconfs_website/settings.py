@@ -113,6 +113,13 @@ STATICFILES_DIRS = (
 
 STATIC_URL = '/static/'
 
+
+# Media settings : user-uploaded files
+# E.g. : confs posters
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
+
 # URLs settings
 APPEND_SLASH = True
 PREPEND_WWW = False

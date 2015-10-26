@@ -14,6 +14,7 @@ class Conf(models.Model):
     conf_date = models.DateTimeField('Date', default=timezone.now)
     conf_location = models.CharField('Lieu', max_length=200)
     conf_speakers = models.ManyToManyField(Speaker)
+    conf_poster = models.FileField(upload_to='conf/', default=None, null=True)
     def __str__(self):
         return self.conf_title
 
