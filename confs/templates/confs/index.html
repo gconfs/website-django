@@ -16,6 +16,7 @@ l'association GConfs<p>
     {% for conf in future_confs %}
       <li><a href="{% url 'details' conf.id %}">{{ conf.conf_title }}</a>
         {% if conf.conf_poster %}
+        <br/>
         <a href="{% url 'details' conf.id %}"><img border="0" src="/media/{{ conf.conf_poster }}" width="350" height="500"></a>
         {% endif %}
       </li>
@@ -28,7 +29,8 @@ l'association GConfs<p>
   <ul>
     {% for conf in conf_list %}
       <li><a href="{% url 'details' conf.id %}">{{ conf.conf_title }}</a>
-        {% if conf.conf_poster %}<br/>
+        {% if conf.conf_poster %}
+        <br/>
         <a href="{% url 'details' conf.id %}"><img border="0" src="/media/{{ conf.conf_poster }}" width="350" height="500"></a>
         {% endif %}
       </li>
