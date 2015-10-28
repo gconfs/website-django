@@ -20,17 +20,17 @@ from django.conf.urls.static import static
 from django.views.generic import RedirectView
 
 urlpatterns = [
-    url(r'^admin$', RedirectView.as_view(url='/admin/')),
+    url(r'^admin$', RedirectView.as_view(url='/admin/', permanent=True)),
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^confs$', RedirectView.as_view(url='/confs/')),
+    url(r'^confs$', RedirectView.as_view(url='/confs/', permanent=True)),
     url(r'^confs/', include('confs.urls')),
-    url(r'^team$', RedirectView.as_view(url='/team/')),
+    url(r'^team$', RedirectView.as_view(url='/team/', permanent=True)),
     url(r'^team/', include('team.urls')),
-    url(r'^statuts$', RedirectView.as_view(url='/statuts/')),
+    url(r'^statuts$', RedirectView.as_view(url='/statuts/', permanent=True)),
     url(r'^statuts/', include('statuts.urls')),
-    url(r'^contact$', RedirectView.as_view(url='/contact/')),
+    url(r'^contact$', RedirectView.as_view(url='/contact/', permanent=True)),
     url(r'^contact/', include('contact.urls')),
-    url(r'^stream$', RedirectView.as_view(url='/stream/')),
+    url(r'^stream$', RedirectView.as_view(url='/stream/', permanent=True)),
     url(r'^stream/', include('stream.urls')),
     url(r'^[/]?$', include('homepage.urls')),
     url(r'^[0-9a-zA-Z]+[/]?$', include('homepage.urls')),
