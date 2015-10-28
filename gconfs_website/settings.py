@@ -43,6 +43,7 @@ INSTALLED_APPS = (
     'statuts',
     'contact',
     'stream',
+    'captcha'
 )
 
 MIDDLEWARE_CLASSES = (
@@ -125,3 +126,10 @@ MEDIA_URL = '/media/'
 # URLs settings
 APPEND_SLASH = True
 PREPEND_WWW = False
+
+# CAPTCHA settings
+RECAPTCHA_PUBLIC_KEY = "6LcX0A8TAAAAAEy9kWP7L6uiC2nluGXzWGyIfxPI"
+RECAPTCHA_PRIVATE_KEY = "6LcX0A8TAAAAAEbW-L2_O-Eo5a9XC8GWlxGyonuc"
+NOCAPTCHA = True
+
+from .smtp import *

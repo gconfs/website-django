@@ -5,6 +5,7 @@
 {% endblock title %}
 
 {% block content %}
+<script src='https://www.google.com/recaptcha/api.js'></script>
 <h1>Contact</h1>
 
 {% with contact="contact@gconfs.fr" %}
@@ -12,6 +13,19 @@
   <ul>
   <li><a href="mailto://{{ contact }}">{{ contact }}</a></li>
   <li>IRC : #gconfs  sur irc.rezosup.org</li>
+  <li>Ou le formulaire ci-dessous:
+    <ul>
+  <form action="/contact/" method="post">
+        {% csrf_token %}
+        {{ form.as_ul }}
+        <!--Sujet : {{ form.subject }}<br/>
+        Message : {{ form.message }}<br/>
+        Email : {{ form.sender }}<br/>
+        Captcha : {{ form.captcha }}<br/>-->
+  <input type="submit" value="Submit" />
+  </form>
+  </ul>
+  </li>
   </ul>
 {% endwith %}
 {% endblock content %}
