@@ -30,6 +30,8 @@ urlpatterns = [
     url(r'^statuts/', include('statuts.urls')),
     url(r'^contact$', RedirectView.as_view(url='/contact/')),
     url(r'^contact/', include('contact.urls')),
+    url(r'^stream$', RedirectView.as_view(url='/stream/')),
+    url(r'^stream/', include('stream.urls')),
     url(r'^[/]?$', include('homepage.urls')),
     url(r'^[0-9a-zA-Z]+[/]?$', include('homepage.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

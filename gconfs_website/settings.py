@@ -42,6 +42,7 @@ INSTALLED_APPS = (
     'team',
     'statuts',
     'contact',
+    'stream',
 )
 
 MIDDLEWARE_CLASSES = (

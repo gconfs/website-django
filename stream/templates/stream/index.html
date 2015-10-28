@@ -1,0 +1,20 @@
+{% extends 'site/base.html' %}
+
+{% block title %}
+<title>Stream</title>
+{% endblock title %}
+
+{% block content %}
+{% if streams %}
+<h1>Stream</h1>
+<ul>
+{% for stream in streams %}
+<li>{{ stream }}<br/>
+  <iframe width="560" height="315"
+        src="https://www.youtube.com/embed/{{stream.stream_youtube_id}}"
+        frameborder="0" allowfullscreen></iframe>
+</li>
+{% endfor %}
+</ul>
+{% endif %}
+{% endblock content %}
