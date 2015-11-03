@@ -1,6 +1,7 @@
 from django.db import models
 from django.utils import timezone
 
+import re
 import markdown
 
 from django.db.models.signals import pre_save
@@ -20,5 +21,9 @@ class Record(models.Model):
 def makdown_to_html(sender, **kwargs):
     instance = kwargs['instance']
     md = instance.record_markdown
+    urls = re.findall('http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\(\),]'
+            '|(?:%[0-9a-fA-F][0-9a-fA-F]))+', md)
+    for url in urls:
+        md = md.replace(url, '[' + url + '](' + url + ')')
     instance.record_html = markdown.markdown(md,
             extensions=['markdown.extensions.nl2br'])
