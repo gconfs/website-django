@@ -45,4 +45,3 @@ def get_youtube_id(sender, **kwargs):
     url = instance.videoinfo_url.split('/')[3].split('=')
     url = url[len(url) - 1]
     instance.youtube_id = url.split('?')[0]
-    print(instance.youtube_id)

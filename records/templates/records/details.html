@@ -1,0 +1,12 @@
+{% extends "site/base.html" %}
+
+{% block content %}
+{% if record %}
+  {% block title %}
+  <title>Compte rendu du {{ record.record_date }}</title>
+  {% endblock title %}
+
+  {{ record.record_html | safe }}
+
+{% endif %}
+{% endblock content %}

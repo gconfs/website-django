@@ -1,0 +1,32 @@
+{% extends "site/base.html" %}
+
+{% block title %}
+  <title>Comptes rendus</title>
+{% endblock title %}
+{% block content %}
+
+<h1>Comptes rendus des réunions et Assemblées Générales de l'association</h1>
+
+
+{% if meeting_records %}
+<h2>Réunions :</h2>
+  <ul>
+    {% for record in meeting_records %}
+      <li><a href="{% url 'details' record.id %}">Réunion du {{ record.record_date }}</a>
+      </li>
+    {% endfor %}
+  </ul>
+{% endif %}
+
+{% if ag_records %}
+<h2>Assemblées Générales :</h2>
+  <ul>
+    {% for record in ag_records %}
+      <li><a href="{% url 'details' record.id %}">Assemblée Générale du {{ record.record_date }}</a>
+      </li>
+    {% endfor %}
+
+  </ul>
+
+{% endif %}
+{% endblock content %}

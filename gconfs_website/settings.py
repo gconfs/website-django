@@ -43,7 +43,8 @@ INSTALLED_APPS = (
     'statuts',
     'contact',
     'stream',
-    'captcha'
+    'captcha',
+    'records',
 )
 
 MIDDLEWARE_CLASSES = (

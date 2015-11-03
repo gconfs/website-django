@@ -10,9 +10,10 @@
     <link rel="shortcut icon" href="/static/img/favicon.ico">
     {% load staticfiles %}
     {% block styles %}
+      <meta name="viewport" content="width=device-width, initial-scale=1">
       <link rel="stylesheet" type="text/css" href="/static/css/bootstrap.css"/>
       <link rel="stylesheet" type="text/css" href="/static/css/site.css"/>
-      <script type="text/javascript" src="/static/js/bootstrap.min.js"></script>
+      <script type="text/javascript" src="/static/js/bootstrap.js"></script>
     {% endblock styles %}
 
   </head>
@@ -23,8 +24,9 @@
           <h1 id="gconfs_title">GConfs</h1>
           <h3>Assocation pour les conférences à EPITA et EPITECH</h3>
         </div>
-        <nav class=menu>
-          <ul>
+        <nav class="nav navbar-default navbar-static-top navbar-inverse">
+          <div class="container-fluid">
+          <ul class="nav nav-justified">
             <li>
               <a class="button white"
                  href="/.">Accueil</a>
@@ -36,7 +38,7 @@
                  href="/team">Les membres</a>
             </li>        <li>
               <a class="button white"
-                 href="/reports">Comptes-rendus</a>
+                 href="/records">Comptes rendus</a>
             </li>        <li>
               <a class="button white"
                  href="/statuts">Progression</a>
@@ -47,6 +49,7 @@
               <a class="button white"
                  href="/stream">Stream</a>
             </li>    </ul>
+          </div>
         </nav>
       </header>
     </div>
