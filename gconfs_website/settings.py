@@ -31,50 +31,50 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = (
-    'django.contrib.admin',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.messages',
-    'django.contrib.staticfiles',
-    'homepage',
-    'confs',
-    'team',
-    'statuts',
-    'contact',
-    'stream',
-    'captcha',
-    'records',
-)
+        'django.contrib.admin',
+        'django.contrib.auth',
+        'django.contrib.contenttypes',
+        'django.contrib.sessions',
+        'django.contrib.messages',
+        'django.contrib.staticfiles',
+        'homepage',
+        'confs',
+        'team',
+        'statuts',
+        'contact',
+        'stream',
+        'captcha',
+        'records',
+        )
 
 MIDDLEWARE_CLASSES = (
-    'django.contrib.sessions.middleware.SessionMiddleware',
-    'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
-    'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
-    'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'django.middleware.security.SecurityMiddleware',
-)
+        'django.contrib.sessions.middleware.SessionMiddleware',
+        'django.middleware.common.CommonMiddleware',
+        'django.middleware.csrf.CsrfViewMiddleware',
+        'django.contrib.auth.middleware.AuthenticationMiddleware',
+        'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
+        'django.contrib.messages.middleware.MessageMiddleware',
+        'django.middleware.clickjacking.XFrameOptionsMiddleware',
+        'django.middleware.security.SecurityMiddleware',
+        )
 
 ROOT_URLCONF = 'gconfs_website.urls'
 
 TEMPLATES = [
-    {
-        'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates')],
-        'APP_DIRS': True,
-        'OPTIONS': {
-            'context_processors': [
-                'django.template.context_processors.debug',
-                'django.template.context_processors.request',
-                'django.contrib.auth.context_processors.auth',
-                'django.contrib.messages.context_processors.messages',
-            ],
-        },
-    },
-]
+        {
+            'BACKEND': 'django.template.backends.django.DjangoTemplates',
+            'DIRS': [os.path.join(BASE_DIR, 'templates')],
+            'APP_DIRS': True,
+            'OPTIONS': {
+                'context_processors': [
+                    'django.template.context_processors.debug',
+                    'django.template.context_processors.request',
+                    'django.contrib.auth.context_processors.auth',
+                    'django.contrib.messages.context_processors.messages',
+                    ],
+                },
+            },
+        ]
 
 WSGI_APPLICATION = 'gconfs_website.wsgi.application'
 
@@ -83,15 +83,15 @@ WSGI_APPLICATION = 'gconfs_website.wsgi.application'
 # https://docs.djangoproject.com/en/1.8/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'gconfs-website-db',
-        'USER': 'gconfs-db-admin',
-        'PASSWORD': 'gconfs-db-password',
-        'HOST': '127.0.0.1',
-        'PORT': '5432',
-    }
-}
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql_psycopg2',
+            'NAME': 'gconfs-website-db',
+            'USER': 'gconfs-db-admin',
+            'PASSWORD': 'gconfs-db-password',
+            'HOST': '127.0.0.1',
+            'PORT': '5432',
+            }
+        }
 
 
 # Internationalization
@@ -112,8 +112,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
 
 STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, "static"),
-)
+        os.path.join(BASE_DIR, "static"),
+        )
 
 STATIC_URL = '/static/'
 
@@ -128,9 +128,20 @@ MEDIA_URL = '/media/'
 APPEND_SLASH = True
 PREPEND_WWW = False
 
-# CAPTCHA settings
-RECAPTCHA_PUBLIC_KEY = "6LcX0A8TAAAAAEy9kWP7L6uiC2nluGXzWGyIfxPI"
-RECAPTCHA_PRIVATE_KEY = "6LcX0A8TAAAAAEbW-L2_O-Eo5a9XC8GWlxGyonuc"
-NOCAPTCHA = True
+from .captcha import *
 
-from .smtp import *
+try:
+    from .smtp import *
+except:
+    EMAIL_HOST = '' # TODO: e.g gmail.com
+    EMAIL_HOST_USER = '' # TODO: e.g test@example.com
+    EMAIL_HOST_PASSWORD = '' # TODO: mysecurepassword
+    EMAIL_PORT = 4242 # TODO: e.g 4242
+    EMAIL_SUBJECT_PREFIX = '[GCONFS][CONTACT] '
+    EMAIL_USE_TLS = True
+    CONTACT_EMAIL = '' # TODO: e.g test@example.com
+    CR_EMAIL = '' # TODO: e.g test@example.com
+    CR_MESSAGE_START = ('Bonjour,\n\nSuite à la réunion du {}, en voici le'
+            'compte rendu :\n\n')
+    CR_MESSAGE_END = '\n\nCR-ment,\n\n-- \nVotre dévoué site web'
+    EMAIL_STD_PREFIX = '[GCONFS][1516]'

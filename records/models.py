@@ -4,7 +4,10 @@ from django.utils import timezone
 import re
 import markdown
 
+from django.core.mail import send_mail
 from django.db.models.signals import pre_save
+
+from gconfs_website import settings
 
 from django.dispatch import receiver
 
@@ -16,11 +19,24 @@ class Record(models.Model):
             max_length=100000)
     record_html = models.TextField(editable=False)
     record_is_meeting = models.BooleanField('Réunion', default=True)
+    record_sent = models.BooleanField('Envoyer', default=False)
+
+    def __str__(self):
+        s = "la réunion" if self.record_is_meeting else "l'Assemblée Générale"
+        return "Compte rendu de {} du {}".format(s, self.record_date)
 
 @receiver(pre_save, sender=Record)
 def makdown_to_html(sender, **kwargs):
     instance = kwargs['instance']
     md = instance.record_markdown
+    if instance.record_sent:
+        recipients = [settings.CR_EMAIL]
+        send_mail(settings.EMAIL_STD_PREFIX + ' CR : Réunion du ' +
+                str(instance.record_date),
+                settings.CR_MESSAGE_START.format(instance.record_date) + md +
+                settings.CR_MESSAGE_END, settings.CR_EMAIL,
+                recipients)
+        instance.record_sent = False
     urls = re.findall('http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\(\),]'
             '|(?:%[0-9a-fA-F][0-9a-fA-F]))+', md)
     for url in urls:

@@ -3,3 +3,4 @@
 */migrations/
 media
 gconfs_website/smtp.py
+gconfs_website/captcha.py
