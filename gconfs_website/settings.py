@@ -128,7 +128,13 @@ MEDIA_URL = '/media/'
 APPEND_SLASH = True
 PREPEND_WWW = False
 
-from .captcha import *
+try:
+    from .captcha import *
+except:
+    RECAPTCHA_PUBLIC_KEY = ""
+    RECAPTCHA_PRIVATE_KEY = ""
+    NOCAPTCHA = True
+
 
 try:
     from .smtp import *
