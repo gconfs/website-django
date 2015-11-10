@@ -12,7 +12,7 @@
 <h2>Réunions :</h2>
   <ul>
     {% for record in meeting_records %}
-      <li><a href="{% url 'details' record.id %}">Réunion du {{ record.record_date }}</a>
+      <li><a href="{% url 'records_details' record.id %}">Réunion du {{ record.record_date }}</a>
       </li>
     {% endfor %}
   </ul>
@@ -22,7 +22,7 @@
 <h2>Assemblées Générales :</h2>
   <ul>
     {% for record in ag_records %}
-      <li><a href="{% url 'details' record.id %}">Assemblée Générale du {{ record.record_date }}</a>
+      <li><a href="{% url 'records_details' record.id %}">Assemblée Générale du {{ record.record_date }}</a>
       </li>
     {% endfor %}
 

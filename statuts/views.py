@@ -10,7 +10,7 @@ from .models import Board
 def index(request):
     template = loader.get_template('statuts/index.html')
     try:
-        board = Board.objects.get(board_year=timezone.now().year)
+        board = Board.objects.get(board_actual=True)
     except:
         board = None
     context = RequestContext(request, {'board': board})

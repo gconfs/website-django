@@ -10,13 +10,19 @@
 
 {% if team %}
 
-  <ul>
+<ul>
 
   {% for member in team %}
-    <li>{{ member }}</li>
+    {% if member.member_membership %}
+      {% if member.member_email %}
+        <li><a href="mailto://{{ member.member_email }}">{{ member }}</a></li>
+      {% else %}
+        <li>{{ member }}</li>
+      {% endif %}
+    {% endif %}
   {% endfor %}
 
-  </ul> 
+</ul> 
 
 {% endif %}
 

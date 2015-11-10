@@ -23,6 +23,7 @@ class Board(models.Model):
     vice_secretary = models.OneToOneField(Member,
             related_name='Vice_Secretary_of', default=None, null=True,
             blank=True)
+    board_actual = models.BooleanField('Actuel', default=False)
 
     def __str__(self):
         year = self.board_date.year

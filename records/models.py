@@ -1,8 +1,7 @@
 from django.db import models
 from django.utils import timezone
 
-import re
-import markdown
+import tools.md
 
 from django.core.mail import send_mail
 from django.db.models.signals import pre_save
@@ -26,7 +25,7 @@ class Record(models.Model):
         return "Compte rendu de {} du {}".format(s, self.record_date)
 
 @receiver(pre_save, sender=Record)
-def makdown_to_html(sender, **kwargs):
+def process_record(sender, **kwargs):
     instance = kwargs['instance']
     md = instance.record_markdown
     if instance.record_sent:
@@ -37,9 +36,4 @@ def makdown_to_html(sender, **kwargs):
                 settings.CR_MESSAGE_END, settings.CR_EMAIL,
                 recipients)
         instance.record_sent = False
-    urls = re.findall('http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\(\),]'
-            '|(?:%[0-9a-fA-F][0-9a-fA-F]))+', md)
-    for url in urls:
-        md = md.replace(url, '[' + url + '](' + url + ')')
-    instance.record_html = markdown.markdown(md,
-            extensions=['markdown.extensions.nl2br'])
+    instance.record_html = tools.md.markdown_to_html(md)

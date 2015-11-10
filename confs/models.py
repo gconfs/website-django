@@ -2,6 +2,7 @@ from django.db import models
 from django.utils import timezone
 
 from team.models import Member as Speaker
+import tools.md
 
 from django.db.models.signals import pre_save
 from django.dispatch import receiver
@@ -11,6 +12,8 @@ from django.dispatch import receiver
 class Conf(models.Model):
     conf_title = models.CharField('Titre', max_length=200)
     conf_description = models.TextField('Description', max_length=2048)
+    conf_description_html = models.TextField(editable=False, max_length=2100,
+            null=True, default=None, blank=True)
     conf_date = models.DateTimeField('Date', default=timezone.now)
     conf_location = models.CharField('Lieu', max_length=200)
     conf_speakers = models.ManyToManyField(Speaker)
@@ -38,6 +41,13 @@ class VideoInfo(models.Model):
         ordering = ['id']
     def __str__(self):
         return self.videoinfo_url
+
+@receiver(pre_save, sender=Conf)
+def descr_md_to_html(sender, **kwargs):
+    instance = kwargs['instance']
+    instance.conf_description_html = tools.md.markdown_to_html(instance.conf_description)
+    print(instance.conf_description_html)
+
 
 @receiver(pre_save, sender=VideoInfo)
 def get_youtube_id(sender, **kwargs):

@@ -15,7 +15,7 @@
   <p>{{ conf.conf_location }}</p>
 
   <h3>Abstract</h3>
-  <p>{{ conf.conf_description }}</p>
+  <p>{{ conf.conf_description_html | safe }}</p>
 
   {% with speakers=conf.conf_speakers.all %}
   {% if speakers|length > 0 %}

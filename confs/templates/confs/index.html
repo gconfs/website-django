@@ -14,10 +14,10 @@ l'association GConfs<p>
 {% if future_confs %}
   <ul>
     {% for conf in future_confs %}
-      <li><a href="{% url 'details' conf.id %}">{{ conf.conf_title }}</a>
+      <li><a href="{% url 'confs_details' conf.id %}">{{ conf.conf_title }}</a>
         {% if conf.conf_poster %}
         <br/>
-        <a href="{% url 'details' conf.id %}"><img border="0" src="/media/{{ conf.conf_poster }}" width="350" height="500"></a>
+        <a href="{% url 'confs_details' conf.id %}"><img border="0" src="/media/{{ conf.conf_poster }}" width="350" height="500"></a>
         {% endif %}
       </li>
     {% endfor %}
@@ -28,10 +28,10 @@ l'association GConfs<p>
 {% if conf_list %}
   <ul>
     {% for conf in conf_list %}
-      <li><a href="{% url 'details' conf.id %}">{{ conf.conf_title }}</a>
+      <li><a href="{% url 'confs_details' conf.id %}">{{ conf.conf_title }}</a>
         {% if conf.conf_poster %}
         <br/>
-        <a href="{% url 'details' conf.id %}"><img border="0" src="/media/{{ conf.conf_poster }}" width="350" height="500"></a>
+        <a href="{% url 'confs_details' conf.id %}"><img border="0" src="/media/{{ conf.conf_poster }}" width="350" height="500"></a>
         {% endif %}
       </li>
     {% endfor %}
