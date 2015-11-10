@@ -38,4 +38,6 @@ class ConfAdmin(admin.ModelAdmin):
 
     search_fields = ['conf_title', 'conf_description']
 
+    filter_horizontal = ('conf_speakers',)
+
 admin.site.register(Conf, ConfAdmin)

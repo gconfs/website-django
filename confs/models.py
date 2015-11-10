@@ -11,14 +11,18 @@ from django.dispatch import receiver
 
 class Conf(models.Model):
     conf_title = models.CharField('Titre', max_length=200)
-    conf_description = models.TextField('Description', max_length=2048)
-    conf_description_html = models.TextField(editable=False, max_length=2100,
+    conf_description = models.TextField('Description', max_length=100000)
+    conf_description_html = models.TextField(editable=False, max_length=120000,
             null=True, default=None, blank=True)
     conf_date = models.DateTimeField('Date', default=timezone.now)
     conf_location = models.CharField('Lieu', max_length=200)
     conf_speakers = models.ManyToManyField(Speaker)
     conf_poster = models.FileField(upload_to='conf/', default=None, null=True,
             blank=True)
+    
+    class Meta:
+        ordering = ['-conf_date']
+
     def __str__(self):
         return self.conf_title
 
