@@ -1,7 +1,7 @@
 from django.db import models
 from django.utils import timezone
 
-from team.models import Member as Speaker
+from team.models import People as Speaker
 import tools.md
 
 from django.db.models.signals import pre_save

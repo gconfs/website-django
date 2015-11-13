@@ -3,19 +3,20 @@ from django.utils import timezone
 
 # Create your models here.
 
-class Member(models.Model):
-    member_name = models.CharField('Nom', max_length=200)
-    member_firstname = models.CharField('Prénom', max_length=200,
+class People(models.Model):
+    people_name = models.CharField('Nom', max_length=200)
+    people_firstname = models.CharField('Prénom', max_length=200,
             default=None, null=True, blank=True)
-    member_pseudo = models.CharField('Pseudo', max_length=200,
+    people_pseudo = models.CharField('Pseudo', max_length=200,
             default=None, null=True, blank=True)
-    member_email = models.EmailField('Mail', max_length=500, default=None,
+    people_email = models.EmailField('Mail', max_length=500, default=None,
             null=True, blank=True)
-    member_membership = models.BooleanField('Membre', default=True)
+    people_membership = models.BooleanField('Membre', default=True)
     
     class Meta:
-        ordering = ['member_name', 'member_firstname']
+        ordering = ['people_name', 'people_firstname']
+        verbose_name_plural = "People"
     
     def __str__(self):
-        return self.member_firstname + (' ' if not self.member_pseudo
-                else (' \"' + self.member_pseudo + '\" ')) + self.member_name
+        return self.people_firstname + (' ' if not self.people_pseudo
+                else (' \"' + self.people_pseudo + '\" ')) + self.people_name

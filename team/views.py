@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.template import loader, RequestContext
 
-from .models import Member
+from .models import People as Member
 
 # Create your views here.
 

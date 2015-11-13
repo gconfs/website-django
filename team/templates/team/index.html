@@ -13,9 +13,9 @@
 <ul>
 
   {% for member in team %}
-    {% if member.member_membership %}
-      {% if member.member_email %}
-        <li><a href="mailto://{{ member.member_email }}">{{ member }}</a></li>
+    {% if member.people_membership %}
+      {% if member.people_email %}
+        <li><a href="mailto://{{ member.people_email }}">{{ member }}</a></li>
       {% else %}
         <li>{{ member }}</li>
       {% endif %}

@@ -5,7 +5,7 @@ from datetime import date
 from django.db.models.signals import pre_save
 from django.dispatch import receiver
 
-from team.models import Member
+from team.models import People as Member
 
 # Create your models here.
 
