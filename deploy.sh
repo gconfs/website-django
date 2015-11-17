@@ -1,8 +1,9 @@
 #!/usr/bin/zsh
 
 cd $( dirname $0 )
+pip install -r requirements.txt
 
-[ $# -lt 2 ] && echo "Give me a db and a user" &&  exit 1
+[ $# -lt 2 ] && exit 0
 
 db=$1
 user=$2
