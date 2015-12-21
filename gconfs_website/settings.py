@@ -150,4 +150,4 @@ except:
     CR_MESSAGE_START = ('Bonjour,\n\nSuite à la réunion du {}, en voici le'
             'compte rendu :\n\n')
     CR_MESSAGE_END = '\n\nCR-ment,\n\n-- \nVotre dévoué site web'
-    EMAIL_STD_PREFIX = '[GCONFS][1516]'
+    EMAIL_STD_PREFIX = '[GCONFS][1516] '
