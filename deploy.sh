@@ -14,4 +14,4 @@ sed -i "s/USER/$user/" ./psql_dump.sh
 
 cp ./gconfs_website/settings.py ./gconfs_website/prod.py
 sed -i "s/DEBUG = True/DEBUG = False/" ./gconfs_website/prod.py
-export DJANGO_SETTINGS_MODULE=prologin.settings.prod
+export DJANGO_SETTINGS_MODULE=gconfs_website.settings.prod
