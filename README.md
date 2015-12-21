@@ -49,18 +49,22 @@ Once you have a working and activated virtualenv you can clone this repository.
     ./manage.py runserver
     # Enjoy, Test., start working.
 
-Adjust the configuration to your needs:
-
-* If you use the contact form, create a file gconfs\_website/smtp.py and fill
-  it using the default values in gconfs\_website/settings.py
-* You will also need recaptcha settings for the form to work. Create a file
-  gconfs\_website/captcha.py and fill it accordingly.
 
 ### Deployment for production:
 
     :::console
     # Execute the deployment script
     ./deploy.sh
+
+If you ever need to change the settings, the website configuration can be
+found in gconfs\_website/prod.py
+
+### Adjust the configuration to your needs:
+
+* If you use the contact form, create a file gconfs\_website/smtp.py and fill
+  it using the default values in gconfs\_website/settings.py
+* You will also need recaptcha settings for the form to work. Create a file
+  gconfs\_website/captcha.py and fill it accordingly.
 
 ## Work on the website:
 
@@ -71,3 +75,5 @@ First you need to activate the virtualenv.
     workon my_env
     # if you use pew:
     pew workon my_env
+
+You can find the issues that need to be resolved [here](https://bitbucket.org/prologin/site/issues?status=new&status=open)
