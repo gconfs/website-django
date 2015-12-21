@@ -77,3 +77,14 @@ First you need to activate the virtualenv.
     pew workon my_env
 
 You can find the issues that need to be resolved [here](https://bitbucket.org/gconfs/gconfs-website/issues?status=new&status=open)
+
+
+## Current django apps:
+
+* confs
+* contact
+* homepage
+* records
+* statuts
+* stream
+* team
