@@ -31,17 +31,17 @@ Wrappers are a more convinient way to manage your virtualenvs.
 
 Once you have a working virtualenv you can clone this repository.
 
-  :::console
-  # using ssh:
-  git clone git@bitbucket.org:gconfs/gconfs-website.git
-  # using https:
-  git clone https://Corwin\_@bitbucket.org/gconfs/gconfs-website.git
-
+    :::console
+    # using ssh:
+    git clone git@bitbucket.org:gconfs/gconfs-website.git
+    # using https:
+    git clone https://Corwin\_@bitbucket.org/gconfs/gconfs-website.git
 
 ### Deployment for development:
 
-  :::console
-  pip install -r requirements.txt
-  ./manage.py migrate
-  ./manage.py runserver
-  #Enjoy !
+    :::console
+    pip install -r requirements.txt
+    ./manage.py migrate
+    ./manage.py runserver
+    # Enjoy !
+
