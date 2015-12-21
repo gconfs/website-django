@@ -76,4 +76,4 @@ First you need to activate the virtualenv.
     # if you use pew:
     pew workon my_env
 
-You can find the issues that need to be resolved [here](https://bitbucket.org/prologin/site/issues?status=new&status=open)
+You can find the issues that need to be resolved [here](https://bitbucket.org/gconfs/gconfs-website/issues?status=new&status=open)
