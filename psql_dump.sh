@@ -1,3 +1,5 @@
+#!/usr/bin/sh
+
 cd $( dirname $0 )
 
 date=$( date -I )
