@@ -1,5 +1,5 @@
 [Unit]
-Decription=GConfs Website Database Backup
+Description=GConfs Website Database Backup
 After=multi-user.target
 
 [Service]
