@@ -1,0 +1,10 @@
+[Unit]
+Decription=GConfs Website Database Backup
+After=multi-user.target
+
+[Service]
+Type=oneshot
+#ExecStart=/path/to/psql_dump.sh
+
+[Install]
+WantedBy=timers.target
